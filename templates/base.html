@@ -2,7 +2,7 @@
 {% load form_extras %}
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="h-full">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -19,14 +19,16 @@
     </style>
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
     <script src="https://unpkg.com/htmx.org@2.0.4" integrity="sha384-HGfztofotfshcF7+8n44JQL2oJmowVChPTg48S+jvZoztPfvwD79OC/LTtG6dMp+" crossorigin="anonymous"></script>
-    <title>CUNE Annoucements</title>
+    <title>CUNE Announcements</title>
 </head>
-<body>
-    {% block content %}{% endblock %}
-</body>
-<footer class="text-white p-6 mt-4" style="background-color: var(--concordia-slate);">
+<body class="min-h-screen flex flex-col">
+    <main class="flex-grow">
+        {% block content %}{% endblock %}
+    </main>
+    <footer class="text-white p-6 mt-4" style="background-color: var(--concordia-slate);">
         <div class="flex flex-col items-center font-sans">
             <p class="text-lg" style="color: var(--concordia-blue);">© 2025</p>
         </div>
     </footer>
+</body>
 </html>
