@@ -1,6 +1,6 @@
 from django.db import models
 
-class Announcement(models.Model):
+class Submission(models.Model):
     title = models.CharField(max_length=200, verbose_name='Title', help_text='Enter the title of the announcement')
     description = models.TextField(verbose_name='Description', help_text='Enter the description of the announcement')
     start_date = models.DateTimeField(verbose_name='Start Date', help_text='Enter the start date of the announcement')
