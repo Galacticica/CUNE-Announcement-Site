@@ -22,12 +22,17 @@
     <title>CUNE Announcements</title>
 </head>
 <body class="min-h-screen flex flex-col">
+    <header class="p-6" style="background-color: var(--concordia-blue); color: var(--concordia-white);">
+        <div class="flex flex-col items-center font-sans">
+            <img src="{% static 'logo.png' %}" alt="CUNE Logo White" class="h-16 mb-4">
+        </div>
+    </header>
     <main class="flex-grow">
         {% block content %}{% endblock %}
     </main>
-    <footer class="text-white p-6 mt-4" style="background-color: var(--concordia-slate);">
+    <footer class="text-white p-6 mt-4" style="background-color: var(--concordia-blue);">
         <div class="flex flex-col items-center font-sans">
-            <p class="text-lg" style="color: var(--concordia-blue);">© 2025</p>
+            <p class="text-lg" style="color: var(--concordia-white);">© 2025</p>
         </div>
     </footer>
 </body>

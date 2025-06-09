@@ -5,7 +5,7 @@ from PIL import Image
 class SubmissionForm(forms.ModelForm):
     class Meta:
         model = Submission
-        fields = ['title', 'description', 'start_date', 'end_date', 'slide', 'chapel', 'praise']
+        fields = ['title', 'name', 'description', 'start_date', 'end_date', 'slide', 'chapel', 'praise']
         widgets = {
             'start_date': forms.DateInput(attrs={'type': 'date'}),
             'end_date': forms.DateInput(attrs={'type': 'date'}),
