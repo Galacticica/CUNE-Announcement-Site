@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     "django_browser_reload",
+    'anymail',
     'submission',
 ]
 
@@ -70,6 +71,16 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'conf.wsgi.application'
+
+#Email settings
+
+ANYMAIL = {
+    "MAILGUN_API_KEY": "<your Mailgun key>",
+}
+
+EMAIL_BACKEND = "anymail.backends.mailgun.EmailBackend"
+DEFAULT_FROM_EMAIL = ""
+SERVER_EMAIL = ""
 
 
 # Database
