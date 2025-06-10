@@ -12,3 +12,5 @@ wheels/
 *.sqlite3
 *.sqlite
 db.sqlite3
+
+/media
