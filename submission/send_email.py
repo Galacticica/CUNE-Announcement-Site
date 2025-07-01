@@ -1,11 +1,16 @@
 import requests
 import os
+from dotenv import load_dotenv
+
+load_dotenv()
+
 def send_simple_message():
+    email_key = os.getenv('EMAIL_KEY', 'EMAIL_KEY')
     response = requests.post(
         "https://api.mailgun.net/v3/sandboxc96b221050bb4ddb8cea645eaf9a6c62.mailgun.org/messages",
-        auth=("api", os.getenv('EMAIL_KEY', 'EMAIL_KEY')),
+        auth=("api", email_key),
         data={"from": "Mailgun Sandbox <postmaster@sandboxc96b221050bb4ddb8cea645eaf9a6c62.mailgun.org>",
-              "to": "Reagan Zierke <reaganzierke@gmail.com>",
+              "to": "Reagan Zierke <ojthecat127@gmail.com>",
               "subject": "Hello Reagan Zierke",
               "text": "Congratulations Reagan Zierke, you just sent an email with Mailgun! You are truly awesome!"}
     )
