@@ -79,12 +79,12 @@ WSGI_APPLICATION = 'conf.wsgi.application'
 #Email settings
 
 ANYMAIL = {
-    "MAILGUN_API_KEY": os.getenv('EMAIL_KEY'),
+    "BREVO_API_KEY": os.getenv('EMAIL_KEY'),
 }
 
-EMAIL_BACKEND = "anymail.backends.mailgun.EmailBackend"
-DEFAULT_FROM_EMAIL = ""
-SERVER_EMAIL = ""
+EMAIL_BACKEND = "anymail.backends.brevo.EmailBackend"
+DEFAULT_FROM_EMAIL = "reaganzierke@gmail.com"
+SERVER_EMAIL = "reaganzierke@gmail.com"
 
 
 # Database
