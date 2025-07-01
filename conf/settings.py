@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/5.2/ref/settings/
 """
 
 from pathlib import Path
+import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -75,7 +76,7 @@ WSGI_APPLICATION = 'conf.wsgi.application'
 #Email settings
 
 ANYMAIL = {
-    "MAILGUN_API_KEY": "<your Mailgun key>",
+    "MAILGUN_API_KEY": "os.getenv('EMAIL_KEY')",
 }
 
 EMAIL_BACKEND = "anymail.backends.mailgun.EmailBackend"
