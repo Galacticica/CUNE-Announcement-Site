@@ -7,7 +7,6 @@ class Submission(models.Model):
     start_date = models.DateTimeField(verbose_name='Start Date', help_text='Enter the start date of the announcement')
     end_date = models.DateTimeField(verbose_name='End Date', help_text='Enter the end date of the announcement')
     created_at = models.DateTimeField(auto_now_add=True, verbose_name='Created At', help_text='The date and time when the announcement was created')
-    slide = models.FileField(upload_to='announcements/', blank=True, null=True, verbose_name='Slide', help_text='Upload a slide image for the announcement')
     chapel = models.BooleanField(default=False, verbose_name='Chapel', help_text='Indicates if the announcement is for chapel')
     praise = models.BooleanField(default=False, verbose_name='Praise', help_text='Indicates if the announcement is for praise')
 
@@ -18,3 +17,10 @@ class Submission(models.Model):
         verbose_name = 'Announcement'
         verbose_name_plural = 'Announcements'
         ordering = ['-start_date']
+
+class SubmissionSlide(models.Model):
+    submission = models.ForeignKey('Submission', on_delete=models.CASCADE, related_name='slides')
+    image = models.ImageField(upload_to='announcements/')
+
+    def __str__(self):
+        return f"Slide for {self.submission.title}"
