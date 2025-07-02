@@ -32,6 +32,7 @@ class SubmissionAdmin(admin.ModelAdmin):
         'praise',
         'all_slides_preview', 
         'is_active',
+        'delete_announcement',  # Add this line
     )
     inlines = [SubmissionSlideInline]
 
@@ -72,3 +73,11 @@ class SubmissionAdmin(admin.ModelAdmin):
     is_active.boolean = True
     is_active.short_description = "Active"
     is_active.admin_order_field = 'start_date'
+
+    def delete_announcement(self, obj):
+        delete_url = f"/admin/submission/submission/{obj.id}/delete/"
+        return format_html(
+            '<a href="{}" style="color:red;" onclick="return confirm(\'Are you sure you want to delete this announcement?\')">Delete</a>',
+            delete_url
+        )
+    delete_announcement.short_description = "Delete"
