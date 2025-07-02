@@ -3,6 +3,11 @@ from .models import Submission, SubmissionSlide
 from django.utils.html import format_html
 from django.utils import timezone
 
+
+admin.site.site_header = "CUNE Announcements Admin"
+admin.site.site_title = "CUNE Announcements Admin"
+admin.site.index_title = "CUNE Announcements Administration"
+
 class SubmissionSlideInline(admin.TabularInline):
     model = SubmissionSlide
     extra = 0
