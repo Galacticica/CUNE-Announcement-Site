@@ -2,7 +2,7 @@ from django.db import models
 
 class Submission(models.Model):
     title = models.CharField(max_length=200, verbose_name='Title', help_text='Enter the title of the announcement')
-    email = models.EmailField(max_length=254, verbose_name='Email', help_text='Enter the email address for the announcement', blank=True, null=True)
+    email = models.EmailField(max_length=254, verbose_name='Contact Email', help_text='Enter the email address to contact for any questions', blank=True, null=True)
     description = models.TextField(verbose_name='Description', help_text='Enter the description of the announcement')
     start_date = models.DateTimeField(verbose_name='Start Date', help_text='Enter the start date of the announcement')
     end_date = models.DateTimeField(verbose_name='End Date', help_text='Enter the end date of the announcement')
