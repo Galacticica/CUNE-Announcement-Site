@@ -44,7 +44,7 @@ def submit_announcement(request):
             formatted_end = end_date.strftime("%B %d, %Y") if end_date else "N/A"
             form_data = (
                 f"Title: {cleaned.get('title', '')}\n"
-                f"Email: {cleaned.get('email', '')}\n"
+                f"Contact Email: {cleaned.get('email', '')}\n"
                 f"Description: {cleaned.get('description', '')}\n"
                 f"Start Date: {formatted_start}\n"
                 f"End Date: {formatted_end}\n"
@@ -53,7 +53,7 @@ def submit_announcement(request):
             if cleaned.get("chapel"):
                 recipients.append("ojthecat127@gmail.com")
             if cleaned.get("praise"):
-                recipients.append("reaganzierke@gmail.com")
+                recipients.append("reagan.zierke@student.cune.edu")
 
             email = EmailMessage(
                 subject="New Announcement",
