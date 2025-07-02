@@ -1,6 +1,7 @@
 from django.contrib import admin
 from .models import Submission, SubmissionSlide
 from django.utils.html import format_html
+from django.utils import timezone
 
 class SubmissionSlideInline(admin.TabularInline):
     model = SubmissionSlide
@@ -29,7 +30,8 @@ class SubmissionAdmin(admin.ModelAdmin):
         'end_date_only',
         'chapel',
         'praise',
-        'first_slide_preview',
+        'all_slides_preview', 
+        'is_active',
     )
     inlines = [SubmissionSlideInline]
 
@@ -41,11 +43,32 @@ class SubmissionAdmin(admin.ModelAdmin):
         return obj.end_date.date() if obj.end_date else "-"
     end_date_only.short_description = "End Date"
 
-    def first_slide_preview(self, obj):
-        first_slide = obj.slides.first() if hasattr(obj, "slides") else obj.submissionslide_set.first()
-        if first_slide and first_slide.image:
-            image_html = format_html('<img src="{}" style="max-height: 100px; margin-right:10px;"/>', first_slide.image.url)
-            download_html = format_html('<a href="{}" download>Download</a>', first_slide.image.url)
-            return format_html('{}{}', image_html, download_html)
+    def all_slides_preview(self, obj):
+        slides = obj.slides.all() if hasattr(obj, "slides") else obj.submissionslide_set.all()
+        if slides:
+            html = ""
+            for slide in slides:
+                if slide.image:
+                    image_html = format_html(
+                        '<img src="{}" style="max-height: 100px; margin-right:10px;"/>',
+                        slide.image.url
+                    )
+                    download_html = format_html(
+                        '<a href="{}" download>Download</a>',
+                        slide.image.url
+                    )
+                    html += format_html('{}{}<br>', image_html, download_html)
+            return format_html(html)
         return "-"
-    first_slide_preview.short_description = "Photo Preview"
+    all_slides_preview.short_description = "Photo Previews"
+
+    def is_active(self, obj):
+        now = timezone.now().date()
+        start = obj.start_date.date() if obj.start_date else None
+        end = obj.end_date.date() if obj.end_date else None
+        if start and end:
+            return start <= now <= end
+        return False
+    is_active.boolean = True
+    is_active.short_description = "Active"
+    is_active.admin_order_field = 'start_date'
