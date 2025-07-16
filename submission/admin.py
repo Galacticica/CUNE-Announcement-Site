@@ -1,3 +1,12 @@
+"""
+File: admin.py
+Author: Reagan Zierke
+Date: 2025-07-16
+Description: Django admin configuration for the Submission model, including inline management of SubmissionSlide objects, custom display fields, and deletion functionality.
+"""
+
+
+
 from django.contrib import admin
 from .models import Submission, SubmissionSlide
 from django.utils.html import format_html
@@ -9,6 +18,11 @@ admin.site.site_title = "CUNE Announcements Admin"
 admin.site.index_title = "CUNE Announcements Administration"
 
 class SubmissionSlideInline(admin.TabularInline):
+    '''
+    Inline admin for SubmissionSlide model to manage slides associated with a Submission.
+    Provides fields for image upload, preview, and download link.
+    '''
+
     model = SubmissionSlide
     extra = 0
     readonly_fields = ('image_preview', 'download_link')
@@ -28,6 +42,10 @@ class SubmissionSlideInline(admin.TabularInline):
 
 @admin.register(Submission)
 class SubmissionAdmin(admin.ModelAdmin):
+    '''
+    Admin configuration for Submission model.
+    '''
+
     list_display = (
         'title',
         'email',
@@ -37,7 +55,7 @@ class SubmissionAdmin(admin.ModelAdmin):
         'praise',
         'all_slides_preview', 
         'is_active',
-        'delete_announcement',  # Add this line
+        'delete_announcement',  
     )
     inlines = [SubmissionSlideInline]
 
@@ -50,6 +68,10 @@ class SubmissionAdmin(admin.ModelAdmin):
     end_date_only.short_description = "End Date"
 
     def all_slides_preview(self, obj):
+        '''
+        Returns a formatted HTML string with previews and download links for all slides associated with the submission.
+        '''
+
         slides = obj.slides.all() if hasattr(obj, "slides") else obj.submissionslide_set.all()
         if slides:
             html = ""
@@ -69,6 +91,11 @@ class SubmissionAdmin(admin.ModelAdmin):
     all_slides_preview.short_description = "Photo Previews"
 
     def is_active(self, obj):
+        '''
+        Checks if the submission is currently active based on the start and end dates.
+        Returns True if the current date is within the start and end dates, otherwise False.
+        '''
+
         now = timezone.now().date()
         start = obj.start_date.date() if obj.start_date else None
         end = obj.end_date.date() if obj.end_date else None

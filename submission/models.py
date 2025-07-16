@@ -1,6 +1,21 @@
+"""
+File: models.py
+Author: Reagan Zierke
+Date: 2025-07-16
+Description: Django models for the Submission and SubmissionSlide
+"""
+
+
 from django.db import models
 
 class Submission(models.Model):
+    '''
+    Model representing an announcement submission.
+    Contains fields for title, email, description, start and end dates,
+    and flags for chapel and praise announcements.
+    Provides methods for string representation and metadata configuration.
+    '''
+
     title = models.CharField(max_length=200, verbose_name='Title', help_text='Enter the title of the announcement')
     email = models.EmailField(max_length=254, verbose_name='Contact Email', help_text='Enter the email address to contact for any questions', blank=True, null=True)
     description = models.TextField(verbose_name='Description', help_text='Enter the description of the announcement')
@@ -19,6 +34,11 @@ class Submission(models.Model):
         ordering = ['-start_date']
 
 class SubmissionSlide(models.Model):
+    '''
+    Model representing a slide associated with a submission.
+    Contains a foreign key to the Submission model and an image field for the slide image.
+    '''
+
     submission = models.ForeignKey('Submission', on_delete=models.CASCADE, related_name='slides')
     image = models.ImageField(upload_to='announcements/')
 

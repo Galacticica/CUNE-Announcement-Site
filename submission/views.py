@@ -1,3 +1,10 @@
+"""
+File: views.py
+Author: Reagan Zierke
+Date: 2025-07-16
+Description: Django views for handling submission of announcements, including form validation, image processing, and email notifications.
+"""
+
 from django.shortcuts import render, redirect
 from .forms import SubmissionForm
 from .models import SubmissionSlide
@@ -7,6 +14,13 @@ from django.core.mail import EmailMessage
 
 
 def submit_announcement(request):
+    '''
+    Handles the submission of announcements.
+    Validates the form, processes uploaded images, and sends an email notification.
+    If the form is valid, it saves the submission and associated slides,
+    checks for image validity, and sends an email with the submission details.
+    '''
+
     template_name = 'submission/submission.html'
     if request.method == 'POST':
         form = SubmissionForm(request.POST, request.FILES)
