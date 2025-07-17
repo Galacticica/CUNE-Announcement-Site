@@ -9,11 +9,11 @@
     <form method="post" enctype="multipart/form-data">
       {% csrf_token %}
       {% if form.non_field_errors %}
-        <div class="text-red-600 mb-4">
-          {% for error in form.non_field_errors %}
-            <div>{{ error }}</div>
-          {% endfor %}
-        </div>
+      <div class="text-red-600 mb-4">
+        {% for error in form.non_field_errors %}
+        <div>{{ error }}</div>
+        {% endfor %}
+      </div>
       {% endif %}
       <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
         <!-- Column 1 -->
@@ -25,23 +25,24 @@
           </div>
 
           <div class="mb-3">
-            <label class="block font-medium text-gray-700">Contact Email</label>
-            {{ form.email|add_class:"border border-gray-300 rounded px-3 py-2 w-full bg-white" }}
-            {{ form.email.errors }}
-          </div>
-          
-          <div class="mb-3">
             <label class="block font-medium text-gray-700">Description</label>
             {{ form.description|add_class:"border border-gray-300 rounded px-3 py-2 w-full bg-white" }}
             {{ form.description.errors }}
           </div>
 
-          
+
         </div>
 
         <!-- Column 2 -->
+
         <div>
-            <div class="mb-3">
+          <div class="mb-3">
+            <label class="block font-medium text-gray-700">Contact Email</label>
+            {{ form.email|add_class:"border border-gray-300 rounded px-3 py-2 w-full bg-white" }}
+            {{ form.email.errors }}
+          </div>
+
+          <div class="mb-3">
             <label class="block font-medium text-gray-700">Start Date</label>
             {{ form.start_date|add_class:"border border-gray-300 rounded px-3 py-2 w-full bg-white" }}
             {{ form.start_date.errors }}
@@ -55,7 +56,8 @@
 
           <div class="mb-3">
             <label class="block font-medium text-gray-700">Slides</label>
-            <input type="file" name="slides" multiple accept=".png,.jpg,.jpeg" class="border border-gray-300 rounded px-3 py-2 w-full bg-white">
+            <input type="file" name="slides" multiple accept=".png,.jpg,.jpeg"
+              class="border border-gray-300 rounded px-3 py-2 w-full bg-white">
           </div>
 
           <div class="mb-3 flex items-center space-x-2">
@@ -73,9 +75,7 @@
       </div>
 
       <div class="text-center mt-4">
-        <button type="submit"
-          class="text-white px-6 py-2 rounded"
-          style="background-color: var(--concordia-sky);"
+        <button type="submit" class="text-white px-6 py-2 rounded" style="background-color: var(--concordia-sky);"
           onmouseover="this.style.backgroundColor='var(--concordia-blue)';"
           onmouseout="this.style.backgroundColor='var(--concordia-sky)';">
           Submit Announcement
@@ -86,18 +86,18 @@
 </div>
 
 <script>
-document.addEventListener('DOMContentLoaded', function() {
+  document.addEventListener('DOMContentLoaded', function () {
     const startInput = document.getElementById('id_start_date');
     const endInput = document.getElementById('id_end_date');
 
     if (startInput && endInput) {
-        startInput.addEventListener('change', function() {
-            endInput.min = startInput.value;
-        });
-        endInput.addEventListener('change', function() {
-            startInput.max = endInput.value;
-        });
+      startInput.addEventListener('change', function () {
+        endInput.min = startInput.value;
+      });
+      endInput.addEventListener('change', function () {
+        startInput.max = endInput.value;
+      });
     }
-});
+  });
 </script>
 {% endblock %}
