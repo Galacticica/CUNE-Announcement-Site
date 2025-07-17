@@ -90,7 +90,15 @@
     const startInput = document.getElementById('id_start_date');
     const endInput = document.getElementById('id_end_date');
 
+    const now = new Date();
+    const cstOffset = -6; 
+    const cstTime = new Date(now.getTime() + (cstOffset * 60 * 60 * 1000));
+    const today = cstTime.toISOString().split('T')[0];
+
     if (startInput && endInput) {
+      startInput.min = today;
+      endInput.min = today;
+
       startInput.addEventListener('change', function () {
         endInput.min = startInput.value;
       });
