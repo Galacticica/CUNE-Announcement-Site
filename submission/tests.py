@@ -1,6 +1,6 @@
 """
 File: tests.py
-Author: Reagan Zierke
+Author: Claude Sonnet 4
 Date: 2025-07-16
 Description: Tests for submitting announcements.
 """
