@@ -42,20 +42,29 @@
 
         <div>
 
-          <div class="mb-3">
-            <label class="block font-medium text-gray-700">Start Date</label>
-            {{ form.start_date|add_class:"border border-gray-300 rounded px-3 py-2 w-full bg-white" }}
-            {{ form.start_date.errors }}
-          </div>
-
-          <div class="mb-3">
-            <label class="block font-medium text-gray-700">End Date</label>
-            {{ form.end_date|add_class:"border border-gray-300 rounded px-3 py-2 w-full bg-white" }}
-            {{ form.end_date.errors }}
+          <div class="mb-3 flex gap-4">
+            <div class="flex-1">
+              <label class="block font-medium text-gray-700">Start Date</label>
+              {{ form.start_date|add_class:"border border-gray-300 rounded px-3 py-2 w-full bg-white" }}
+              {{ form.start_date.errors }}
+            </div>
+            <div class="flex-1">
+              <label class="block font-medium text-gray-700">End Date</label>
+              {{ form.end_date|add_class:"border border-gray-300 rounded px-3 py-2 w-full bg-white" }}
+              {{ form.end_date.errors }}
+            </div>
           </div>
 
           <div class="mb-3">
             <label class="block font-medium text-gray-700">Slides</label>
+            <div class="text-sm text-gray-600 mb-2">
+              <p class="mb-1">Requirements:</p>
+              <ul class="list-disc list-inside space-y-1">
+                <li>File formats: PNG, JPG only</li>
+                <li>Aspect ratio: 16:9 required (1920px by 1080px works)</li>
+                <li>Multiple files allowed</li>
+              </ul>
+            </div>
             <input type="file" name="slides" multiple accept=".png,.jpg,.jpeg"
               class="border border-gray-300 rounded px-3 py-2 w-full bg-white">
           </div>
