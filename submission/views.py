@@ -31,13 +31,11 @@ def _process_slides(request, form, submission):
     error_found = False
     
     for slide in request.FILES.getlist('slides'):
-        # Check file extension
         if not _validate_slide_extension(slide.name):
             form.add_error(None, f"{slide.name}: Slide must be a PNG or JPG image.")
             error_found = True
             continue
             
-        # Validate image format
         try:
             img = Image.open(slide)
         except Exception:
@@ -45,13 +43,11 @@ def _process_slides(request, form, submission):
             error_found = True
             continue
             
-        # Check aspect ratio
         if not _validate_slide_aspect_ratio(img):
             form.add_error(None, f"{slide.name}: Slide must have a 16:9 aspect ratio.")
             error_found = True
             continue
             
-        # Save valid slide
         SubmissionSlide.objects.create(submission=submission, image=slide)
     
     return error_found
@@ -95,7 +91,6 @@ def _send_notification_email(cleaned_data, request):
         to=recipients,
     )
     
-    # Attach slide files
     for slide in request.FILES.getlist('slides'):
         slide.open()
         email.attach(slide.name, slide.read(), slide.content_type)

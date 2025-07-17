@@ -5,8 +5,7 @@ Date: 2025-07-16
 Description: Django admin configuration for the Submission model, including inline management of SubmissionSlide objects, custom display fields, and deletion functionality.
 """
 
-
-
+import os
 from django.contrib import admin
 from .models import Submission, SubmissionSlide
 from django.utils.html import format_html
@@ -109,7 +108,7 @@ class SubmissionAdmin(admin.ModelAdmin):
     def delete_announcement(self, obj):
         delete_url = f"/admin/submission/submission/{obj.id}/delete/"
         return format_html(
-            '<a href="{}" style="color:red;" onclick="return confirm(\'Are you sure you want to delete this announcement?\')">Delete</a>',
+            '<a href="{}" style="color:red;">Delete</a>',
             delete_url
         )
     delete_announcement.short_description = "Delete"
