@@ -40,6 +40,8 @@ INSTALLED_APPS = [
     "django_browser_reload",
     'anymail',
     'submission',
+    'tailwind',
+    'theme',
 ]
 
 MIDDLEWARE = [
@@ -69,6 +71,8 @@ TEMPLATES = [
         },
     },
 ]
+
+TAILWIND_APP_NAME = 'theme'
 
 WSGI_APPLICATION = 'conf.wsgi.application'
 
