@@ -1,5 +1,4 @@
 version = 1
-revision = 1
 requires-python = ">=3.13"
 
 [[package]]
@@ -125,7 +124,6 @@ dependencies = [
     { name = "django" },
     { name = "django-anymail" },
     { name = "django-browser-reload" },
-    { name = "django-tailwind" },
     { name = "dotenv" },
     { name = "pillow" },
 ]
@@ -136,7 +134,6 @@ requires-dist = [
     { name = "django", specifier = ">=5.2.1" },
     { name = "django-anymail", specifier = ">=13.0" },
     { name = "django-browser-reload", specifier = ">=1.18.0" },
-    { name = "django-tailwind", specifier = ">=4.2.0" },
     { name = "dotenv", specifier = ">=0.9.9" },
     { name = "pillow", specifier = ">=11.2.1" },
 ]
@@ -180,18 +177,6 @@ dependencies = [
 sdist = { url = "https://files.pythonhosted.org/packages/3b/41/84eaa4f2b7f764e56e01c4ee49aa12bdea30ae50fd0d3ef7c2690b0c4ec2/django_browser_reload-1.18.0.tar.gz", hash = "sha256:c5f0b134723cbf2a0dc9ae1ee1d38e42db28fe23c74cdee613ba3ef286d04735", size = 14319 }
 wheels = [
     { url = "https://files.pythonhosted.org/packages/e4/9d/1322dc4bce4982d1eadd3a62802c996ae0303aad13d9ad88c1d35025f73d/django_browser_reload-1.18.0-py3-none-any.whl", hash = "sha256:ed4cc2fb83c3bf6c30b54107a1a6736c0b896e62e4eba666d81005b9f2ecf6f8", size = 12230 },
-]
-
-[[package]]
-name = "django-tailwind"
-version = "4.2.0"
-source = { registry = "https://pypi.org/simple" }
-dependencies = [
-    { name = "django" },
-]
-sdist = { url = "https://files.pythonhosted.org/packages/1e/75/f244c147c6fe04a565f36721cf04d8b36c8bae8bdd17ec1656603d71ce05/django_tailwind-4.2.0.tar.gz", hash = "sha256:60bae45a9981bdf3ebaaa4a8e588533327c90e5857a64f57c26a39b7f234ac0e", size = 11734 }
-wheels = [
-    { url = "https://files.pythonhosted.org/packages/b8/f5/f91497da51098d7a25ee7409a49d24c880e3af3664da0872dbe238a7174b/django_tailwind-4.2.0-py3-none-any.whl", hash = "sha256:ff40ccb263faefac555fbaa340d6014f2b07fee6be2c8d5659f2cd63dbce02e9", size = 19225 },
 ]
 
 [[package]]
