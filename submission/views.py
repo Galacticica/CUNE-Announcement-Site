@@ -125,3 +125,10 @@ def submit_announcement(request):
         form = SubmissionForm()
     
     return render(request, template_name, {'form': form})
+
+
+def faq(request):
+    """
+    Render the FAQ page.
+    """
+    return render(request, 'submission/faq.html')
