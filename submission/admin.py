@@ -5,9 +5,8 @@ Date: 2025-07-16
 Description: Django admin configuration for the Submission model, including inline management of SubmissionSlide objects, custom display fields, and deletion functionality.
 """
 
-import os
 from django.contrib import admin
-from .models import Submission, SubmissionSlide
+from .models import Submission, SubmissionSlide, Contact
 from django.utils.html import format_html
 from django.utils import timezone
 
@@ -15,6 +14,10 @@ from django.utils import timezone
 admin.site.site_header = "CUNE Announcements Admin"
 admin.site.site_title = "CUNE Announcements Admin"
 admin.site.index_title = "CUNE Announcements Administration"
+
+@admin.register(Contact)
+class ContactAdmin(admin.ModelAdmin):
+    list_display = ('name', 'email', 'is_chapel', 'is_praise')
 
 class SubmissionSlideInline(admin.TabularInline):
     '''
@@ -112,3 +115,5 @@ class SubmissionAdmin(admin.ModelAdmin):
             delete_url
         )
     delete_announcement.short_description = "Delete"
+    
+

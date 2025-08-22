@@ -9,7 +9,7 @@ from django.shortcuts import render, redirect
 from django.core.mail import EmailMessage
 from PIL import Image
 from .forms import SubmissionForm
-from .models import SubmissionSlide
+from .models import SubmissionSlide, Contact
 
 
 def _validate_slide_extension(slide_name):
@@ -73,9 +73,11 @@ def _get_email_recipients(cleaned_data):
     """Get email recipients based on chapel and praise selections."""
     recipients = []
     if cleaned_data.get("chapel"):
-        recipients.append("ojthecat127@gmail.com")
+        chapel_people = Contact.objects.filter(is_chapel=True)
+        recipients.extend([person.email for person in chapel_people])
     if cleaned_data.get("praise"):
-        recipients.append("reagan.zierke@student.cune.edu")
+        praise_people = Contact.objects.filter(is_praise=True)
+        recipients.extend([person.email for person in praise_people])
     return recipients
 
 

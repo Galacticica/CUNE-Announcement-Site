@@ -44,3 +44,14 @@ class SubmissionSlide(models.Model):
 
     def __str__(self):
         return f"Slide for {self.submission.title}"
+
+
+class Contact(models.Model):
+    """
+    Model representing who to contact when submitted
+    """
+
+    name = models.CharField(max_length=100, verbose_name='Name', help_text='Enter the name of the contact person')
+    email = models.EmailField(max_length=254, verbose_name='Email', help_text='Enter the email address of the contact person')
+    is_chapel = models.BooleanField(default=False, verbose_name='Chapel Contact', help_text='Indicates if this contact is for chapel announcements')
+    is_praise = models.BooleanField(default=False, verbose_name='Praise Contact', help_text='Indicates if this contact is for praise announcements')
