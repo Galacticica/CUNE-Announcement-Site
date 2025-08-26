@@ -20,7 +20,7 @@ class SubmissionForm(forms.ModelForm):
 
     class Meta:
         model = Submission
-        fields = ['title', 'email', 'description', 'start_date', 'end_date', 'chapel', 'praise']
+        fields = ['title', 'email', 'description', 'start_date', 'end_date', 'is_chapel', 'is_praise']
         widgets = {
             'start_date': forms.DateInput(attrs={'type': 'date'}),
             'end_date': forms.DateInput(attrs={'type': 'date'}),

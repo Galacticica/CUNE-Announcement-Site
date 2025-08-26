@@ -22,8 +22,8 @@ class Submission(models.Model):
     start_date = models.DateTimeField(verbose_name='Start Date', help_text='Enter the start date of the announcement')
     end_date = models.DateTimeField(verbose_name='End Date', help_text='Enter the end date of the announcement')
     created_at = models.DateTimeField(auto_now_add=True, verbose_name='Created At', help_text='The date and time when the announcement was created')
-    chapel = models.BooleanField(default=False, verbose_name='Chapel', help_text='Indicates if the announcement is for chapel')
-    praise = models.BooleanField(default=True, verbose_name='Praise', help_text='Indicates if the announcement is for praise')
+    is_chapel = models.BooleanField(default=False, verbose_name='Chapel', help_text='Indicates if the announcement is for chapel')
+    is_praise = models.BooleanField(default=True, verbose_name='Praise', help_text='Indicates if the announcement is for praise')
 
     def __str__(self):
         return self.title
