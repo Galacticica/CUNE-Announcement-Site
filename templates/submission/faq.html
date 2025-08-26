@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+{% load form_extras %}
+
+{% block content %}
+<div class="flex items-start justify-center pt-5">
+    <div class="bg-gray-200 p-4 rounded shadow-md w-full max-w-4xl mx-auto">
+        <h2 class="text-2xl font-bold mb-6 text-center">Frequently Asked Questions</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <!-- Column 1 -->
+            <div>
+                <div class="mb-3">
+                      <h3 class="font-bold text-gray-700 mb-2">How do I submit an announcement?</h3>
+                    <p class="text-gray-800">Fill out the form on the submission page with your announcement details, dates, and any required slides.</p>
+                </div>
+                <div class="mb-3">
+                      <h3 class="font-bold text-gray-700 mb-2">What file types are accepted for slides?</h3>
+                    <p class="text-gray-800">Only PNG and JPG files are accepted. Please ensure your slides are in 16:9 aspect ratio (1920x1080 recommended).</p>
+                </div>
+                <div class="mb-3">
+                      <h3 class="font-bold text-gray-700 mb-2">How can I resize my slide if it isn't correct?</h3>
+                    <p class="text-gray-800">Online tools such as Canva can help you resize your slides to the correct aspect ratio.</p>
+                </div>
+            </div>
+            <!-- Column 2 -->
+            <div>
+                <div class="mb-3">
+                      <h3 class="font-bold text-gray-700 mb-2">Can I submit multiple slides?</h3>
+                    <p class="text-gray-800">Yes, you can upload multiple slide files at once using the submission form.</p>
+                </div>
+                <div class="mb-3">
+                      <h3 class="font-bold text-gray-700 mb-2">How long will my announcement be displayed?</h3>
+                    <p class="text-gray-800">Announcements are displayed between the start and end dates you select in the form.</p>
+                </div>
+                <div class="mb-3">
+                      <h3 class="font-bold text-gray-700 mb-2">Who can I contact for help?</h3>
+                    <p class="text-gray-800">Email <a href="mailto:reagan.zierke@student.cune.edu" class="underline text-concordia-sky">reagan.zierke@student.cune.edu</a> for support.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
