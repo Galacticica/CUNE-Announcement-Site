@@ -31,6 +31,3 @@ class SubmissionForm(forms.ModelForm):
         cleaned_data = super().clean()
         chapel = cleaned_data.get("chapel")
         praise = cleaned_data.get("praise")
-
-        if not chapel and not praise:
-            raise ValidationError("At least one of 'chapel' or 'praise' must be selected.")
