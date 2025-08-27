@@ -29,5 +29,5 @@ class SubmissionForm(forms.ModelForm):
 
     def clean(self):
         cleaned_data = super().clean()
-        chapel = cleaned_data.get("chapel")
-        praise = cleaned_data.get("praise")
+        chapel = cleaned_data.get("is_chapel")
+        praise = cleaned_data.get("is_praise")

@@ -72,12 +72,14 @@ def _format_email_body(cleaned_data):
 def _get_email_recipients(cleaned_data):
     """Get email recipients based on chapel and praise selections."""
     recipients = []
-    if cleaned_data.get("chapel"):
-        chapel_people = Contact.objects.filter(is_chapel=True)
-        recipients.extend([person.email for person in chapel_people])
-    if cleaned_data.get("praise"):
-        praise_people = Contact.objects.filter(is_praise=True)
-        recipients.extend([person.email for person in praise_people])
+    # if cleaned_data.get("is_chapel"):
+    #     chapel_people = Contact.objects.filter(is_chapel=True)
+    #     recipients.extend([person.email for person in chapel_people])
+    # if cleaned_data.get("is_praise"):
+    #     praise_people = Contact.objects.filter(is_praise=True)
+    #     recipients.extend([person.email for person in praise_people])
+    praise_people = Contact.objects.filter(is_praise=True)
+    recipients.extend([person.email for person in praise_people])
     return recipients
 
 
