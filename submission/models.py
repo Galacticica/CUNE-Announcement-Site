@@ -55,3 +55,6 @@ class Contact(models.Model):
     email = models.EmailField(max_length=254, verbose_name='Email', help_text='Enter the email address of the contact person')
     is_chapel = models.BooleanField(default=False, verbose_name='Chapel Contact', help_text='Indicates if this contact is for chapel announcements')
     is_praise = models.BooleanField(default=False, verbose_name='Praise Contact', help_text='Indicates if this contact is for praise announcements')
+
+    def __str__(self):
+        return self.name
