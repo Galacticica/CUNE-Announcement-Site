@@ -1,11 +1,21 @@
 # CUNE Announcements
-## What Is It?
-It is a site in which CUNE students and faculty can submit announcements to be displayed during chapel and praise. The announcements are then sent to the proper channels to be added.
+## Overview
+This is a site that allows Concordia University students and faculty to submit announcements for chapel and praise services. It ensures that announcements are sent to the correct location and in the correct format for use.
 
 ## Why Make This Site?
-It makes a convenient way for students to submit announcements, as well as for tech volunteers to receive announcements. Additionally it saves tech volunteers time as the dates to display the announcement are listed and the announcements are required to be in the correct format to display.
+Previously, announcements were consistently sent to the wrong people in the wrong format. This app eliminates both of those problems by having all announcements sent to one centralized location, and by requiring them to be in the correct format.
 
+## How It Was Built
+- **Tech Stack:** Django, Tailwind CSS, SQLite
+- **Features:** Secure form submission for announcements, centralized access to announcements and information
+- **Outcome:** Reduced time and complexity for tech volunteers
+- **Deployment** Deployed securely on Concordia's servers
+
+## Screenshots
+**User View**
 ![submission form](./images_github/csa.cune.edu_chapel.png)
+
+**Producer View**
 ![admin_view](./images_github/csa.cune.edu_chapel_admin.png)
 
 ## Usage
