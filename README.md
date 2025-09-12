@@ -2,6 +2,9 @@
 ## What Is It?
 It is a site in which CUNE students and faculty can submit announcements to be displayed during chapel and praise. The announcements are then sent to the proper channels to be added.
 
+## Why Make This Site?
+It makes a convenient way for students to submit announcements, as well as for tech volunteers to receive announcements. Additionally it saves tech volunteers time as the dates to display the announcement are listed and the announcements are required to be in the correct format to display.
+
 ## Usage
 #### Cloning Down The Code
 1. Run ```gh repo clone Galacticica/CUNE-Announcement-Site```
