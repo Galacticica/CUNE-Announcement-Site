@@ -5,6 +5,9 @@ It is a site in which CUNE students and faculty can submit announcements to be d
 ## Why Make This Site?
 It makes a convenient way for students to submit announcements, as well as for tech volunteers to receive announcements. Additionally it saves tech volunteers time as the dates to display the announcement are listed and the announcements are required to be in the correct format to display.
 
+![submission form](./images_github/csa.cune.edu_chapel.png)
+![admin_view](./images_github/csa.cune.edu_chapel_admin.png)
+
 ## Usage
 #### Cloning Down The Code
 1. Run ```gh repo clone Galacticica/CUNE-Announcement-Site```
